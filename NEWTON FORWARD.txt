@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+    int n, fact = 1;
+    float x,u,y,newU;
+    
+    printf("enter the number of terms:");
+    scanf("%d",&n);
+    
+    float arr[n][n+1];
+    
+    printf("\nenter the value's of X : ");
+    for(int i = 0; i < n; i++)
+    scanf("%f",&arr[i][0]);
+    
+    printf("enter the value's of Y : ");
+    for(int i = 0; i < n; i++)
+    scanf("%f",&arr[i][1]);
+    
+    printf("\nenter the value of x for which you want y : ");
+    scanf("%f",&x);
+    
+    
+    for(int j = 2; j < n+1; j++)
+    {
+        for(int i = 0; i <= n-j; i++)
+        {
+            arr[i][j] = arr[i+1][j-1] - arr[i][j-1];
+        }
+    }
+    
+    printf("\nFORWARD DIFFERENCE TABLE\n\n");
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; j < n+1; j++)
+        {
+            printf("%0.2f\t", arr[i][j]);
+        }
+
+        printf("\n");
+    }
+}
